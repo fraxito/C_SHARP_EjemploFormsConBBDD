@@ -25,7 +25,10 @@ namespace EjemploForms
         private void button1_Click(object sender, EventArgs e)
         {
             misPokemons = miConexion.getPokemonPorNombre(textBox1.Text);
-            label2.Text = misPokemons.Rows[0]["weight"].ToString();
+            textBox2.Text = misPokemons.Rows[0]["weight"].ToString();
+            textBox3.Text = misPokemons.Rows[0]["height"].ToString();
+            textBox4.Text = misPokemons.Rows[0]["habitat"].ToString();
+            label6.Text = misPokemons.Rows[0]["id"].ToString();
         }
 
 
@@ -36,5 +39,11 @@ namespace EjemploForms
             Application.Exit();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            miConexion.ActualizaPokemon(label6.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+            //refresca el dataGridView
+            dataGridView1.DataSource = miConexion.getPokemons();
+        }
     }
 }

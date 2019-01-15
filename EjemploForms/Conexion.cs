@@ -55,5 +55,21 @@ namespace EjemploForms
 
         }
 
+        public void ActualizaPokemon(String id, String weight, String height, String habitat)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = 
+                    new MySqlCommand("UPDATE pokemon SET weight='"+ weight + "', height='"+height+ "', habitat='" + habitat + "' WHERE id='"+id+"'" , conexion);
+                consulta.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
     }
 }
