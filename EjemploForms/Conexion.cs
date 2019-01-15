@@ -35,5 +35,25 @@ namespace EjemploForms
             }
         }
 
+        public DataTable getPokemonPorNombre(String nombre)
+        {
+            try
+            {
+                conexion.Open();
+                MySqlCommand consulta = 
+                    new MySqlCommand("SELECT * FROM pokemon where name ='" + nombre + "'", conexion);
+                MySqlDataReader resultado = consulta.ExecuteReader();
+                DataTable pokemons = new DataTable();
+                pokemons.Load(resultado);
+                conexion.Close();
+                return pokemons;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+
+        }
+
     }
 }
