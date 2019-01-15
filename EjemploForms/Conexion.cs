@@ -22,7 +22,7 @@ namespace EjemploForms
             try
             {
                 conexion.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon");
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM pokemon", conexion);
                 MySqlDataReader resultado = consulta.ExecuteReader();
                 DataTable pokemons = new DataTable();
                 pokemons.Load(resultado);

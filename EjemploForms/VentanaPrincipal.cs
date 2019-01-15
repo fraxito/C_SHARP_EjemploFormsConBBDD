@@ -13,12 +13,13 @@ namespace EjemploForms
     public partial class VentanaPrincipal : Form
     {
         Conexion miConexion = new Conexion();
-        DataTable misClientes = new DataTable();
+        DataTable misPokemons = new DataTable();
 
         public VentanaPrincipal()
         {
             InitializeComponent();
-            misClientes = miConexion.getClientes();
+            misPokemons = miConexion.getPokemons();
+            dataGridView1.DataSource = misPokemons;
         }
     }
 }
