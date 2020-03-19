@@ -15,7 +15,7 @@ namespace EjemploForms
 
         public Conexion()
         {
-            conexion = new MySqlConnection("Server = 127.0.0.1; Database = test; Uid = root; Pwd =root; Port = 3306");
+            conexion = new MySqlConnection("Server = 127.0.0.1; Database = test; Uid = root; Pwd =; Port = 3306");
         }
 
         public DataTable getPokemons() {
